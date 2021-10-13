@@ -81,14 +81,21 @@ WSGI_APPLICATION = 'stocks_products.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'netology_stocks_products',
-        'USER': 'admin_stocks',
-        'PASSWORD': 'stocks',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'netology_stocks_products',
+#         'USER': 'admin_stocks',
+#         'PASSWORD': 'stocks',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
@@ -130,8 +137,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-SECRET_KEY = os.getenv('SECRET_KEY', default='the-best-secret-key')
-DEBUG = os.getenv('DEBUG', default='True') == 'True'
+# SECRET_KEY = os.getenv('SECRET_KEY', default='the-best-secret-key')
+# DEBUG = os.getenv('DEBUG', default='True') == 'True'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
