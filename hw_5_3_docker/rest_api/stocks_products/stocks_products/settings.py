@@ -136,7 +136,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # SECRET_KEY = os.getenv('SECRET_KEY', default='the-best-secret-key')
 # DEBUG = os.getenv('DEBUG', default='True') == 'True'
 
