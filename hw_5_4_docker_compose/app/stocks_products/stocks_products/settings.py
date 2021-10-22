@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     # 'django_filters',
 
     'rest_framework',
-
     'logistic',
 ]
 
@@ -82,12 +81,12 @@ WSGI_APPLICATION = 'stocks_products.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'postgres',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'postgres',
-        'NAME': 'my-db-stocks',
-        'USER': 'admin_stocks',
-        'PASSWORD': 'stocks',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        # 'NAME': 'my-db-stocks',
+        # 'USER': 'admin_stocks',
+        # 'PASSWORD': 'stocks',
         'HOST': 'db',
         'PORT': '5432',
     }
