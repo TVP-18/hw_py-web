@@ -81,13 +81,13 @@ WSGI_APPLICATION = 'stocks_products.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        # 'NAME': 'my-db-stocks',
-        # 'USER': 'admin_stocks',
-        # 'PASSWORD': 'stocks',
-        'HOST': 'db',
+        # 'NAME': 'postgres',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'postgres',
+        'NAME': 'netology_stocks_products',
+        'USER': 'admin_stocks',
+        'PASSWORD': 'stocks',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
@@ -145,7 +145,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 3
 }
 
-try:
-    from .settings_local import *
-except ImportError:
-    pass
+# try:
+#     from .settings_local import *
+# except ImportError:
+#     pass
