@@ -1,0 +1,16 @@
+web_1    |
+web_1    | 161 static files copied to '/stocks_products/static'.
+web_1    | [2021-10-25 08:05:05 +0000] [1] [INFO] Starting gunicorn 20.1.0
+web_1    | [2021-10-25 08:05:05 +0000] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
+web_1    | [2021-10-25 08:05:05 +0000] [1] [INFO] Using worker: sync
+web_1    | [2021-10-25 08:05:05 +0000] [9] [INFO] Booting worker with pid: 9
+web_1    | Not Found: /static/admin/css/base.css
+web_1    | Not Found: /static/admin/css/nav_sidebar.css
+web_1    | Not Found: /static/admin/css/login.css
+web_1    | Not Found: /static/admin/css/responsive.css
+web_1    | Not Found: /static/admin/js/nav_sidebar.js
+web_1    | Not Found: /static/admin/css/base.css
+web_1    | Not Found: /static/admin/css/nav_sidebar.css
+web_1    | Not Found: /static/admin/css/login.css
+web_1    | Not Found: /static/admin/css/responsive.css
+web_1    | Not Found: /static/admin/js/nav_sidebar.js
