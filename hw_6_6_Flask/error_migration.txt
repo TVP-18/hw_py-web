@@ -1,0 +1,315 @@
+:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask>flask db init
+C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\flask_sqlalchemy\__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant o
+verhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Creating directory C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations ...  done
+Creating directory C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations\versions ...  done
+Generating C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations\alembic.ini ...  done
+Generating C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations\env.py ...  done
+Generating C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations\README ...  done
+Generating C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations\script.py.mako ...  done
+Please edit configuration/connection/logging settings in 'C:\\Python\\Модуль 5. Python в веб-разработке\\hw\\my-hw-py-web\\hw_6_6_Flask\\migrations\\alembic.ini' bef
+ore proceeding.
+
+C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask>flask db migrate -m 'first'
+C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\flask_sqlalchemy\__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant o
+verhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Traceback (most recent call last):
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 3212, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 761, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    self._dec_overflow()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\impl.py", line 142, in _do_get
+    return self._create_connection()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 362, in __init__
+    self.__connect()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not connect to server: Connection refused (0x0000274D/10061)
+        Is the server running on host "127.0.0.1" and accepting
+        TCP/IP connections on port 5431?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\program files\python39\lib\runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "c:\program files\python39\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "C:\Program Files\Python39\Scripts\flask.exe\__main__.py", line 7, in <module>
+  File "c:\program files\python39\lib\site-packages\flask\cli.py", line 994, in main
+    cli.main(args=sys.argv[1:])
+  File "c:\program files\python39\lib\site-packages\flask\cli.py", line 600, in main
+    return super().main(*args, **kwargs)
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "c:\program files\python39\lib\site-packages\click\decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "c:\program files\python39\lib\site-packages\flask\cli.py", line 444, in decorator
+    return __ctx.invoke(f, *args, **kwargs)
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\flask_migrate\cli.py", line 104, in migrate
+    _migrate(directory, message, sql, head, splice, branch_label, version_path,
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\flask_migrate\__init__.py", line 98, in wrapped
+    f(*args, **kwargs)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\flask_migrate\__init__.py", line 155, in migrate
+    command.revision(config, message, autogenerate=True, sql=sql,
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\alembic\command.py", line 227, in revision
+    script_directory.run_env()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\alembic\script\base.py", line 563, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\alembic\util\pyfiles.py", line 92, in load_python_file
+    module = load_module_py(module_id, path)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\alembic\util\pyfiles.py", line 108, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 790, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "migrations\env.py", line 91, in <module>
+    run_migrations_online()
+  File "migrations\env.py", line 76, in run_migrations_online
+    with connectable.connect() as connection:
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 3166, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 3245, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 3215, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 2068, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 3212, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 761, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    self._dec_overflow()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\impl.py", line 142, in _do_get
+    return self._create_connection()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 362, in __init__
+    self.__connect()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not connect to server: Connection refused (0x0000274D/10061)
+        Is the server running on host "127.0.0.1" and accepting
+        TCP/IP connections on port 5431?
+
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+
+C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask>flask db init
+C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\flask_sqlalchemy\__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant o
+verhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Creating directory C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations ...  done
+Creating directory C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations\versions ...  done
+Generating C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations\alembic.ini ...  done
+Generating C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations\env.py ...  done
+Generating C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations\README ...  done
+Generating C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask\migrations\script.py.mako ...  done
+Please edit configuration/connection/logging settings in 'C:\\Python\\Модуль 5. Python в веб-разработке\\hw\\my-hw-py-web\\hw_6_6_Flask\\migrations\\alembic.ini' bef
+ore proceeding.
+
+C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask>flask db migrate -m 'first'
+C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\flask_sqlalchemy\__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant o
+verhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Traceback (most recent call last):
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 3212, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 761, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    self._dec_overflow()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\impl.py", line 142, in _do_get
+    return self._create_connection()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 362, in __init__
+    self.__connect()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not connect to server: Connection refused (0x0000274D/10061)
+        Is the server running on host "127.0.0.1" and accepting
+        TCP/IP connections on port 5431?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\program files\python39\lib\runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "c:\program files\python39\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "C:\Program Files\Python39\Scripts\flask.exe\__main__.py", line 7, in <module>
+  File "c:\program files\python39\lib\site-packages\flask\cli.py", line 994, in main
+    cli.main(args=sys.argv[1:])
+  File "c:\program files\python39\lib\site-packages\flask\cli.py", line 600, in main
+    return super().main(*args, **kwargs)
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "c:\program files\python39\lib\site-packages\click\decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "c:\program files\python39\lib\site-packages\flask\cli.py", line 444, in decorator
+    return __ctx.invoke(f, *args, **kwargs)
+  File "c:\program files\python39\lib\site-packages\click\core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\flask_migrate\cli.py", line 104, in migrate
+    _migrate(directory, message, sql, head, splice, branch_label, version_path,
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\flask_migrate\__init__.py", line 98, in wrapped
+    f(*args, **kwargs)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\flask_migrate\__init__.py", line 155, in migrate
+    command.revision(config, message, autogenerate=True, sql=sql,
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\alembic\command.py", line 227, in revision
+    script_directory.run_env()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\alembic\script\base.py", line 563, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\alembic\util\pyfiles.py", line 92, in load_python_file
+    module = load_module_py(module_id, path)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\alembic\util\pyfiles.py", line 108, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 790, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "migrations\env.py", line 91, in <module>
+    run_migrations_online()
+  File "migrations\env.py", line 76, in run_migrations_online
+    with connectable.connect() as connection:
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 3166, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 3245, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 3215, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 2068, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\base.py", line 3212, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 761, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    self._dec_overflow()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\impl.py", line 142, in _do_get
+    return self._create_connection()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 362, in __init__
+    self.__connect()
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\pool\base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\sqlalchemy\engine\default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\TVP\AppData\Roaming\Python\Python39\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not connect to server: Connection refused (0x0000274D/10061)
+        Is the server running on host "127.0.0.1" and accepting
+        TCP/IP connections on port 5431?
+
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+
+C:\Python\Модуль 5. Python в веб-разработке\hw\my-hw-py-web\hw_6_6_Flask>
