@@ -43,7 +43,8 @@ class Ad(db.Model):
             'id': self.id,
             'title': self.title,
             'text': self.text,
-            'date_create': self.date_create
+            'date_create': self.date_create,
+            'id_owner': self.id_owner
         }
 
 
@@ -54,12 +55,40 @@ def get_ads():
         # сделать словарь
         return jsonify(ads)
 
+    # if request.method == 'POST':
+    #     return {jsonify('}status': 'post'}
+
     return {'status': 'OK'}
 
 
 def get_ad(ad_id):
     if request.method == 'GET':
         ad = Ad.query.get(ad_id)
+
+        if ad is None:
+            return {}
+
+        return jsonify(ad.to_dict())
+
+    return {'status': 'OK'}
+
+
+def post_ads():
+    if request.method == 'POST':
+        ad = Ad(**request.json)
+        db.session.add(ad)
+        db.session.commit()
+
+        return jsonify(ad.to_dict())
+
+    return {'status': 'OK'}
+
+
+def delete_ad(ad_id):
+    if request.method == 'DELETE':
+        ad = Ad.query.get(ad_id)
+        db.session.delete(ad)
+        db.session.commit()
 
         return jsonify(ad.to_dict())
 
@@ -68,10 +97,9 @@ def get_ad(ad_id):
 
 app.add_url_rule('/ads/', view_func=get_ads, methods=['GET', ])
 app.add_url_rule('/ads/<int:ad_id>', view_func=get_ad, methods=['GET', ])
+app.add_url_rule('/ads/', view_func=post_ads, methods=['POST', ])
+app.add_url_rule('/ads/<int:ad_id>', view_func=delete_ad, methods=['DELETE', ])
 
 
-# migrate = Migrate(app, db)
-#
-#
 if __name__ == '__main__':
     app.run()
