@@ -104,7 +104,7 @@ def delete_ad(ad_id):
         db.session.delete(ad)
         db.session.commit()
 
-        return make_response(jsonify({}), 204)
+        return make_response(jsonify({}), 200)
 
 
 if __name__ == '__main__':
