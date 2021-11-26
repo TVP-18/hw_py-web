@@ -1,13 +1,13 @@
 from datetime import datetime
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-# 'postgresql://postgres:super@127.0.0.1:5432/flask_test'
 db = SQLAlchemy(app)
+
 
 # models
 class User(db.Model):
@@ -49,56 +49,62 @@ class Ad(db.Model):
 
 
 # views
+@app.route('/ads/', methods=['GET'])
 def get_ads():
-    if request.method == 'GET':
-        ads = [{ad.id: ad.to_dict()} for ad in Ad.query.all()]
-        # сделать словарь
-        return jsonify(ads)
+    ads = Ad.query.all()
+    resp = {'count': len(ads), 'items': [ad.to_dict() for ad in ads]}
 
-    # if request.method == 'POST':
-    #     return {jsonify('}status': 'post'}
-
-    return {'status': 'OK'}
+    return make_response(jsonify(resp), 200)
 
 
+@app.route('/ads/<int:ad_id>', methods=['GET'])
 def get_ad(ad_id):
-    if request.method == 'GET':
-        ad = Ad.query.get(ad_id)
 
-        if ad is None:
-            return {}
+    ad = Ad.query.get(ad_id)
 
-        return jsonify(ad.to_dict())
-
-    return {'status': 'OK'}
+    if ad is None:
+        return make_response('error: Not Found', 404)
+    else:
+        return make_response(jsonify(ad.to_dict()), 200)
 
 
-def post_ads():
-    if request.method == 'POST':
-        ad = Ad(**request.json)
-        db.session.add(ad)
+@app.route('/ads/', methods=['POST'])
+def post_ad():
+
+    ad = Ad(**request.json)
+    db.session.add(ad)
+    db.session.commit()
+
+    return make_response(jsonify(ad.to_dict()), 200)
+
+
+@app.route('/ads/<int:ad_id>', methods=['PUT'])
+def put_ad(ad_id):
+    ad = Ad.query.get(ad_id)
+
+    if ad is None:
+        return make_response(jsonify('error: Not Found'), 404)
+    else:
+        ad.id_owner = request.json['id_owner']
+        ad.title = request.json['title']
+        ad.text = request.json['text']
+
         db.session.commit()
 
-        return jsonify(ad.to_dict())
-
-    return {'status': 'OK'}
+    return make_response(jsonify(ad.to_dict()), 200)
 
 
+@app.route('/ads/<int:ad_id>', methods=['DELETE'])
 def delete_ad(ad_id):
-    if request.method == 'DELETE':
-        ad = Ad.query.get(ad_id)
+    ad = Ad.query.get(ad_id)
+
+    if ad is None:
+        return make_response(jsonify('error: Not Found'), 404)
+    else:
         db.session.delete(ad)
         db.session.commit()
 
-        return jsonify(ad.to_dict())
-
-    return {'status': 'OK'}
-
-
-app.add_url_rule('/ads/', view_func=get_ads, methods=['GET', ])
-app.add_url_rule('/ads/<int:ad_id>', view_func=get_ad, methods=['GET', ])
-app.add_url_rule('/ads/', view_func=post_ads, methods=['POST', ])
-app.add_url_rule('/ads/<int:ad_id>', view_func=delete_ad, methods=['DELETE', ])
+        return make_response(jsonify({}), 204)
 
 
 if __name__ == '__main__':
