@@ -32,6 +32,9 @@ class Ad(db.Model):
 
 
 # views
+async def get_ads(self):
+    return web.json_response({'count': 0, 'item': []})
+
 async def get_ad(self):
     print(self)
     ad_id = self.request.match_info['ad_id']
@@ -51,6 +54,7 @@ async def init_orm(app):
     await db.pop_bind().close()
 
 
+app.add_routes([web.get('/ads/', get_ads)])
 app.add_routes([web.get('/ads/{ad_id:\d+}', get_ad)])
 app.cleanup_ctx.append(init_orm)
 web.run_app(app, port=8000)
